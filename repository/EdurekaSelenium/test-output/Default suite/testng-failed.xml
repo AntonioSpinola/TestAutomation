@@ -11,6 +11,8 @@
       <class name="com.test.EdurekaSelenium.FirstTestNG">
         <methods>
           <include name="test_recalcularcorte"/>
+          <include name="test_realizarCierre"/>
+          <include name="test_recibirCorte"/>
         </methods>
       </class> <!-- com.test.EdurekaSelenium.FirstTestNG -->
     </classes>

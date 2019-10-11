@@ -8,6 +8,10 @@
     <parameter name="usuario" value="RECAUDADOR"></parameter>
     
     <parameter name="password" value="THEBIGONE"></parameter>
+    
+    <parameter name="serie" value="2019"></parameter>
+    
+    <parameter name="identificador" value="9999"></parameter>
 
     <classes>
       <class name="com.test.EdurekaSelenium.FirstTestNG"/>

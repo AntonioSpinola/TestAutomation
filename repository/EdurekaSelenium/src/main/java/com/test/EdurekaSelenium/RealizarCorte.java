@@ -8,22 +8,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.winium.DesktopOptions;
-import org.openqa.selenium.winium.WiniumDriver;
-import org.openqa.selenium.winium.WiniumDriverService;
+//import org.openqa.selenium.winium.DesktopOptions;
+//import org.openqa.selenium.winium.WiniumDriver;
+//import org.openqa.selenium.winium.WiniumDriverService;
 
 public class RealizarCorte {
 	WebDriver driver;
-	WiniumDriver wDriver;
-	WiniumDriverService service;
-	DesktopOptions options ;
+//	WiniumDriver wDriver;
+//	WiniumDriverService service;
+//	DesktopOptions options ;
 	
 	//DesktopOptions options = new DesktopOptions();
 	//wDriver.setApplicationPath("C:\\Program Files (x86)\\Google\\Chrome\\Application");
 	//options.ApplicationPath = @"C:\\Program Files (x86)\\Google\\Chrome\\Application";
 
-	
-	
+
 	/**
 
      * All WebElements are identified by @FindBy annotation
@@ -93,4 +92,7 @@ public class RealizarCorte {
 
     	realizarCorteButton.click();
     } 
+    
+
+    
 }

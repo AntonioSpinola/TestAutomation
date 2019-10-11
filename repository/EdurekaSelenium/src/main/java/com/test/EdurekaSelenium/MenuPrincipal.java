@@ -16,10 +16,18 @@ public class MenuPrincipal {
      */
 	
 	@FindBy(id="cl2")
-
     WebElement realizarCorteButton;
 	
+	@FindBy(xpath="//*[@id=\"cl2j_id_7\"]")
+	WebElement recepcionCorteButton;
+	
+	@FindBy(xpath="//*[@id=\"submenu1j_id_5\"]")
+	WebElement administracionCajasButton;
+	
+	@FindBy(id="cl2j_id_13")
+	WebElement realizarCierreButton;
 
+	
 	public MenuPrincipal(WebDriver driver) {
 		
 		this.driver = driver;
@@ -28,10 +36,28 @@ public class MenuPrincipal {
 		
 	}
 
+	//Click on administracion Cajas
+		public void clickAdministracionCaja() {
+			
+			administracionCajasButton.click();
+		}
+	
+	//Click on Recepcion Corte
+	public void clickRecepcionCorte() {
+		
+		recepcionCorteButton.click();
+	}
+	
     //Click on RealizarCorte button
     public void clickRealizarCorte(){
 
     	realizarCorteButton.click();
     } 
+    
+    public void clickRealizarCierre(){
+
+    	realizarCierreButton.click();
+    } 
+    
 	
 }
