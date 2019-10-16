@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.winium.DesktopOptions;
 import org.openqa.selenium.winium.WiniumDriver;
 import org.openqa.selenium.winium.WiniumDriverService;
@@ -54,6 +56,12 @@ public class FirstTestNG {
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		driver.get(url);		
 		
+		
+		
+		//Create new menuPrincipal page object
+		objMenuPrincipal = new MenuPrincipal(driver);
+		
+		
 		//Set up for the Winium Driver
 //		options = new DesktopOptions();
 //		options.setDebugConnectToRunningApp(true);
@@ -72,7 +80,7 @@ public class FirstTestNG {
 	}
 	
 	
-	@Test
+	@Test(priority=1)
 	@Parameters({"usuario","password"})
 	public void test_recalcularcorte(String usu, String pass) {
 		
@@ -82,7 +90,7 @@ public class FirstTestNG {
 		objLoginPage.loginRecaudador(usu, pass);
 		
 		//Create new menuPrincipal page object
-		objMenuPrincipal = new MenuPrincipal(driver);
+//		objMenuPrincipal = new MenuPrincipal(driver);
 		
 		objMenuPrincipal.clickRealizarCorte();
 		
@@ -105,8 +113,7 @@ public class FirstTestNG {
 		//objDesktopAppController.clickAceptar();
 		
 		
-		driver.switchTo().alert().accept();;
-		
+		driver.switchTo().alert().accept();
 		
 		objConfirmacionCorte = new ConfirmacionCorte(driver);
 		
@@ -121,11 +128,11 @@ public class FirstTestNG {
 		
 	}
 	
-	@Test
+	@Test (priority=2)
 	//@Parameters({"serie","identificador"})
 	public void test_recibirCorte() {
 		
-		objMenuPrincipal = new MenuPrincipal(driver);
+//		objMenuPrincipal = new MenuPrincipal(driver);
 		
 		objMenuPrincipal.clickAdministracionCaja();
 		objMenuPrincipal.clickRecepcionCorte();
@@ -148,13 +155,34 @@ public class FirstTestNG {
 		
 	}
 	
-	
-	@Test
-	public void test_realizarCierre() {
+	@Parameters({"usuario","password"})
+	@Test (priority=3)
+	public void test_realizarCierre(String usu, String pass) throws InterruptedException {
 		
-		objMenuPrincipal = new MenuPrincipal(driver);
 		
+//		//Create new logIn page object
+//		objLoginPage = new LoginPage(driver);
+//		
+//		objLoginPage.loginRecaudador(usu, pass);
+
+		System.out.println("0");
+
+//		WebDriverWait wait=new WebDriverWait(driver, 20);
+//		
+//		WebElement guru99seleniumlink;
+//		guru99seleniumlink= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//*[@id=\"submenu1j_id_5\"]")));
+//		guru99seleniumlink.click();
+		
+		System.out.println("1");
+		
+//		objMenuPrincipal = new MenuPrincipal(driver);
+		
+		System.out.println("2");
+				
 		objMenuPrincipal.clickAdministracionCaja();
+		
+		System.out.println("3");
+		
 		objMenuPrincipal.clickRealizarCierre();
 		
 		objRealizarCierre = new RealizarCierre(driver);
@@ -167,6 +195,7 @@ public class FirstTestNG {
 		
 		driver.switchTo().alert().accept();
 		
+		//quick solution to to back to the main menu. 
 		WebElement a = driver.findElement(By.xpath("//*[@id=\"j_id_id5\"]/table[1]/tbody/tr/td[1]/a/img"));
         a.click();
 	}

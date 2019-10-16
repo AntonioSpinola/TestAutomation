@@ -24,7 +24,7 @@ public class MenuPrincipal {
 	@FindBy(xpath="//*[@id=\"submenu1j_id_5\"]")
 	WebElement administracionCajasButton;
 	
-	@FindBy(id="cl2j_id_13")
+	@FindBy(linkText="Realización de Cierres")
 	WebElement realizarCierreButton;
 
 	

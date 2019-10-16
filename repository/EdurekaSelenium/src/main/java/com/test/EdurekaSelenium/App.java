@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -33,7 +34,17 @@ public class App
         WebElement loginButton = driver.findElement(By.id("cb1"));
         loginButton.click();
         
+        WebElement administracionCajasButton = driver.findElement(By.xpath("//*[@id=\"submenu1j_id_5\"]"));
+        administracionCajasButton.click();
         
+        
+        
+        WebElement realizarCierreButton = driver.findElement(By.linkText("Realización de Cierres"));
+        realizarCierreButton.click();
+        
+
+        
+        if(false) {
         // para estas acciones se necesita crear una clase aparte para usar Page Object porque es una pagina diferente
         WebElement realizarCorteButton = driver.findElement(By.id("cl2"));
         realizarCorteButton.click();
@@ -68,7 +79,7 @@ public class App
         WebElement corteButton = driver.findElement(By.xpath("/html/body/form/div[1]/table[3]/tbody/tr[2]/td/div/table/tbody/tr/td/table/tbody/tr[14]/td[3]/button"));
         corteButton.click();
         
-        
+        }
         //------------------------------------------------
 //        WebElement SearchBox = driver.findElement(By.id("twotabsearchtextbox"));
 //        SearchBox.sendKeys("iPhone");
@@ -89,4 +100,9 @@ public class App
         
         //driver.quit();
     }
+
+	private static void cajas() {
+		// TODO Auto-generated method stub
+		
+	}
 }
