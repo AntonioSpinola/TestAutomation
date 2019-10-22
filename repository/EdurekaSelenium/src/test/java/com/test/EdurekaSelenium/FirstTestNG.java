@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.winium.DesktopOptions;
@@ -17,6 +18,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FirstTestNG {
 	
@@ -47,13 +50,24 @@ public class FirstTestNG {
 	String serie;
 	String identificador;
 	
+	WebElement a;
+	
 	@BeforeTest
-	@Parameters({"url"})
-	public void setup(String url) {
+	@Parameters({"url","browser"})
+	public void setup(String url, String browser) {
 		
-		//Set up for the selenium Driver
+		
+		if(browser.equals("firefox")) {
+		WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();
+		}
+		if(browser.equals("chrome")) {
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		}
+
+
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.get(url);		
 		
 		
@@ -62,6 +76,8 @@ public class FirstTestNG {
 		objMenuPrincipal = new MenuPrincipal(driver);
 		
 		
+			
+			
 		//Set up for the Winium Driver
 //		options = new DesktopOptions();
 //		options.setDebugConnectToRunningApp(true);
@@ -129,7 +145,6 @@ public class FirstTestNG {
 	}
 	
 	@Test (priority=2)
-	//@Parameters({"serie","identificador"})
 	public void test_recibirCorte() {
 		
 //		objMenuPrincipal = new MenuPrincipal(driver);
@@ -177,6 +192,11 @@ public class FirstTestNG {
 		
 //		objMenuPrincipal = new MenuPrincipal(driver);
 		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		System.out.println("me dormi 2");
+		Thread.sleep(5000);
+		
 		System.out.println("2");
 				
 		objMenuPrincipal.clickAdministracionCaja();
@@ -196,6 +216,7 @@ public class FirstTestNG {
 		driver.switchTo().alert().accept();
 		
 		//quick solution to to back to the main menu. 
+		
 		WebElement a = driver.findElement(By.xpath("//*[@id=\"j_id_id5\"]/table[1]/tbody/tr/td[1]/a/img"));
         a.click();
 	}

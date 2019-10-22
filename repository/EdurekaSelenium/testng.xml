@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
+  <test thread-count="1" name="Test">
 
     <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"></parameter>
+    
+    <parameter name="browser" value="firefox"></parameter>
     
     <parameter name="usuario" value="RECAUDADOR"></parameter>
     
     <parameter name="password" value="THEBIGONE"></parameter>
-    
-    <parameter name="serie" value="2019"></parameter>
-    
-    <parameter name="identificador" value="9999"></parameter>
 
     <classes>
       <class name="com.test.EdurekaSelenium.FirstTestNG"/>

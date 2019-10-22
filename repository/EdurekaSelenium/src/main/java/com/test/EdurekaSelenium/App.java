@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 /**
  * Hello world!
  *
@@ -20,7 +22,7 @@ public class App
     {
         System.out.println( "Hello World!" );
         
-   	 	System.setProperty("webdriverchrome.driver","C:\\Users\\instalacion\\AppData\\Local\\Google\\Chrome\\Application\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
    	 	WebDriver driver = new ChromeDriver();
         driver.get("http://wls33.tgc.mx:8080/re_login/faces/infraestructura/login.jspx?_adf.ctrl-state=s7xuq5fq7_3");
         

@@ -2,18 +2,31 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <parameter name="password" value="THEBIGONE"/>
-  <parameter name="serie" value="2019"/>
+  <parameter name="browser" value="firefox"/>
   <parameter name="usuario" value="RECAUDADOR"/>
   <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"/>
-  <parameter name="identificador" value="9999"/>
-  <test thread-count="5" name="Test">
+  <test thread-count="1" name="Test">
     <parameter name="password" value="THEBIGONE"/>
-    <parameter name="serie" value="2019"/>
+    <parameter name="browser" value="firefox"/>
     <parameter name="usuario" value="RECAUDADOR"/>
     <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"/>
-    <parameter name="identificador" value="9999"/>
     <classes>
       <class name="com.test.EdurekaSelenium.FirstTestNG"/>
     </classes>
   </test> <!-- Test -->
+  <test name="Test(failed)">
+    <parameter name="password" value="THEBIGONE"/>
+    <parameter name="browser" value="firefox"/>
+    <parameter name="usuario" value="RECAUDADOR"/>
+    <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"/>
+    <classes>
+      <class name="com.test.EdurekaSelenium.FirstTestNG">
+        <methods>
+          <include name="setup"/>
+          <include name="test_realizarCierre" invocation-numbers="0"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.test.EdurekaSelenium.FirstTestNG -->
+    </classes>
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
