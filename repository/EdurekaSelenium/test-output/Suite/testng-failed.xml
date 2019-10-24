@@ -22,9 +22,10 @@
     <classes>
       <class name="com.test.EdurekaSelenium.FirstTestNG">
         <methods>
+          <include name="test_recalcularcorte" invocation-numbers="0"/>
           <include name="setup"/>
-          <include name="test_realizarCierre" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="test_recibirCorte"/>
         </methods>
       </class> <!-- com.test.EdurekaSelenium.FirstTestNG -->
     </classes>
