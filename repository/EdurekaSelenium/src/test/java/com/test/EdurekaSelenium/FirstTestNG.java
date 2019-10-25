@@ -98,7 +98,7 @@ public class FirstTestNG {
 	
 	@Test(priority=1)
 	@Parameters({"usuario","password"})
-	public void test_recalcularcorte(String usu, String pass) {
+	public void test_recalcularcorte(String usu, String pass) throws InterruptedException {
 		
 		//Create new logIn page object
 		objLoginPage = new LoginPage(driver);
@@ -108,10 +108,14 @@ public class FirstTestNG {
 		//Create new menuPrincipal page object
 //		objMenuPrincipal = new MenuPrincipal(driver);
 		
+		Thread.sleep(1000);
+		
 		objMenuPrincipal.clickRealizarCorte();
 		
 		//Create new RealizarCorte page Object
 		objRealizarCorte = new RealizarCorte(driver);
+		
+		Thread.sleep(1000);
 		
 		objRealizarCorte.setInstrumentoDePago(1);
 		
@@ -119,7 +123,11 @@ public class FirstTestNG {
 		
 		objRealizarCorte.setMoneda10("3");
 		
+		Thread.sleep(1000);
+		
 		objRealizarCorte.clickRecalcular();
+		
+		Thread.sleep(1000);
 		
 		objRealizarCorte.clickRealizarCorte();
 		
@@ -135,8 +143,11 @@ public class FirstTestNG {
 		
 		serie = objConfirmacionCorte.getSerie();
 		
+		
+		
 		identificador = objConfirmacionCorte.getIdentificador();
 		
+		Thread.sleep(1000);
 		
 		//quick solution to to back to the main menu. 
 		WebElement a = driver.findElement(By.xpath("//*[@id=\"j_id_id5\"]/table[1]/tbody/tr/td[1]/a/img"));
@@ -145,17 +156,24 @@ public class FirstTestNG {
 	}
 	
 	@Test (priority=2)
-	public void test_recibirCorte() {
+	public void test_recibirCorte() throws InterruptedException {
 		
 //		objMenuPrincipal = new MenuPrincipal(driver);
 		
 		objMenuPrincipal.clickAdministracionCaja();
+		
+		Thread.sleep(1000);
+		
 		objMenuPrincipal.clickRecepcionCorte();
+		
+		Thread.sleep(1000);
 		
 		objRecepcionDeCortes = new RecepcionDeCortes(driver);
 		
 		objRecepcionDeCortes.setSerieText(serie);
 		objRecepcionDeCortes.setIdentificadorText(identificador);
+		
+		
 		objRecepcionDeCortes.clickBuscar();
 		
 		objConfirmRecepcionCorte = new ConfirmRecepcionCorte(driver);
@@ -180,7 +198,6 @@ public class FirstTestNG {
 //		
 //		objLoginPage.loginRecaudador(usu, pass);
 
-		System.out.println("0");
 
 //		WebDriverWait wait=new WebDriverWait(driver, 20);
 //		
@@ -188,20 +205,15 @@ public class FirstTestNG {
 //		guru99seleniumlink= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//*[@id=\"submenu1j_id_5\"]")));
 //		guru99seleniumlink.click();
 		
-		System.out.println("1");
 		
 //		objMenuPrincipal = new MenuPrincipal(driver);
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		System.out.println("me dormi 2");
-		Thread.sleep(5000);
 		
-		System.out.println("2");
 				
 		objMenuPrincipal.clickAdministracionCaja();
 		
-		System.out.println("3");
 		
 		objMenuPrincipal.clickRealizarCierre();
 		

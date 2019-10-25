@@ -2,32 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <parameter name="password" value="THEBIGONE"/>
-  <parameter name="browser" value="firefox"/>
+  <parameter name="browser" value="chrome"/>
   <parameter name="usuario" value="RECAUDADOR"/>
   <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"/>
   <test thread-count="1" name="Test">
     <parameter name="password" value="THEBIGONE"/>
-    <parameter name="browser" value="firefox"/>
+    <parameter name="browser" value="chrome"/>
     <parameter name="usuario" value="RECAUDADOR"/>
     <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"/>
     <classes>
       <class name="com.test.EdurekaSelenium.FirstTestNG"/>
     </classes>
   </test> <!-- Test -->
-  <test name="Test(failed)">
-    <parameter name="password" value="THEBIGONE"/>
-    <parameter name="browser" value="firefox"/>
-    <parameter name="usuario" value="RECAUDADOR"/>
-    <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"/>
-    <classes>
-      <class name="com.test.EdurekaSelenium.FirstTestNG">
-        <methods>
-          <include name="test_recalcularcorte" invocation-numbers="0"/>
-          <include name="setup"/>
-          <include name="tearDown"/>
-          <include name="test_recibirCorte"/>
-        </methods>
-      </class> <!-- com.test.EdurekaSelenium.FirstTestNG -->
-    </classes>
-  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

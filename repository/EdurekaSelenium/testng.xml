@@ -5,7 +5,7 @@
 
     <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"></parameter>
     
-    <parameter name="browser" value="firefox"></parameter>
+    <parameter name="browser" value="chrome"></parameter>
     
     <parameter name="usuario" value="RECAUDADOR"></parameter>
     
@@ -15,3 +15,5 @@
       <class name="com.test.EdurekaSelenium.FirstTestNG"/>
     </classes></test> <!-- Test -->
 </suite> <!-- Suite -->
+
+
