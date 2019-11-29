@@ -5,7 +5,7 @@
 
     <parameter name="url" value="http://wls33.tgc.mx:8080/re_login/faces/infraestructura"></parameter>
     
-    <parameter name="browser" value="chrome"></parameter>
+    <parameter name="browser" value="Firefox"></parameter>
     
     <parameter name="usuario" value="RECAUDADOR"></parameter>
     
